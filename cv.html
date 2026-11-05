@@ -1,0 +1,476 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="description" content="Download Chanuda Nilaweera's CV - available in standard and ATS-optimised PDF formats." />
+  <meta name="author" content="Chanuda Nilaweera" />
+  <title>CV - Chanuda Nilaweera</title>
+  <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'><rect width='32' height='32' rx='6' fill='%23c41230'/><text x='50%25' y='54%25' dominant-baseline='middle' text-anchor='middle' fill='white' font-size='18' font-weight='900' font-family='Inter,sans-serif'>C</text></svg>" />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&display=swap" rel="stylesheet" />
+  <style>
+    /* ===== DESIGN TOKENS ===== */
+    :root {
+      --bg:          #0a0a0a;
+      --bg-card:     #161616;
+      --bg-sec:      #111111;
+      --accent:      #c41230;
+      --accent-l:    #e8173a;
+      --accent-dim:  rgba(196,18,48,0.10);
+      --text:        #f0f0f0;
+      --text-sec:    #a0a0a0;
+      --text-muted:  #5a5a5a;
+      --border:      rgba(255,255,255,0.07);
+      --border-h:    rgba(196,18,48,0.4);
+      --r:           16px;
+      --tr:          all 0.3s cubic-bezier(0.4,0,0.2,1);
+    }
+    *, *::before, *::after { margin:0; padding:0; box-sizing:border-box; }
+    html { scroll-behavior:smooth; }
+    body {
+      font-family: 'Inter', sans-serif;
+      background: var(--bg);
+      color: var(--text);
+      min-height: 100vh;
+      -webkit-font-smoothing: antialiased;
+      overflow-x: hidden;
+    }
+    ::selection { background:var(--accent); color:#fff; }
+    ::-webkit-scrollbar { width:6px; }
+    ::-webkit-scrollbar-track { background:var(--bg); }
+    ::-webkit-scrollbar-thumb { background:var(--accent); border-radius:3px; }
+
+    /* ===== AMBIENT ORB ===== */
+    .bg-orb {
+      position:fixed; top:-250px; left:50%; transform:translateX(-50%);
+      width:800px; height:800px; pointer-events:none; z-index:0;
+      background:radial-gradient(circle, rgba(196,18,48,0.07) 0%, transparent 65%);
+    }
+
+    /* ===== NAVBAR ===== */
+    #navbar {
+      position:fixed; top:0; left:0; right:0; z-index:100;
+      padding:1.1rem 0;
+      background:rgba(10,10,10,0.88);
+      backdrop-filter:blur(18px);
+      -webkit-backdrop-filter:blur(18px);
+      border-bottom:1px solid var(--border);
+    }
+    .nav-inner {
+      max-width:1200px; margin:0 auto; padding:0 2rem;
+      display:flex; align-items:center; justify-content:space-between;
+    }
+    .nav-logo {
+      font-size:1.05rem; font-weight:800; color:var(--text);
+      text-decoration:none; display:flex; align-items:center; gap:0.55rem;
+    }
+    .nav-logo span { color:var(--accent); }
+    .nav-avatar {
+      width:32px; height:32px; border-radius:50%; object-fit:cover;
+      border:2px solid var(--accent); filter:grayscale(30%); transition:var(--tr);
+    }
+    .nav-logo:hover .nav-avatar { filter:grayscale(0%); }
+    .nav-back {
+      font-size:0.78rem; font-weight:700; letter-spacing:0.1em;
+      text-transform:uppercase; color:var(--text-sec); text-decoration:none;
+      display:flex; align-items:center; gap:0.45rem; transition:var(--tr);
+    }
+    .nav-back:hover { color:var(--accent); }
+    .nav-back svg { transition:transform 0.25s ease; }
+    .nav-back:hover svg { transform:translateX(-3px); }
+
+    /* ===== PAGE HEADER ===== */
+    .page-header {
+      padding:8.5rem 0 3rem;
+      text-align:center;
+      position:relative; z-index:1;
+    }
+    .eyebrow {
+      display:block; font-size:0.7rem; font-weight:700; letter-spacing:0.22em;
+      text-transform:uppercase; color:var(--accent); margin-bottom:1rem;
+    }
+    .page-title {
+      font-size:clamp(2.2rem, 5vw, 3.5rem);
+      font-weight:900; line-height:1.1; margin-bottom:1rem;
+    }
+    .page-sub {
+      font-size:1rem; color:var(--text-sec); max-width:460px;
+      margin:0 auto; line-height:1.75;
+    }
+    .divider {
+      width:56px; height:3px; margin:1.5rem auto 0;
+      background:linear-gradient(90deg, var(--accent), var(--accent-l));
+      border-radius:2px;
+    }
+
+    /* ===== MAIN GRID ===== */
+    .cv-section { padding:2rem 0 6rem; position:relative; z-index:1; }
+    .container { max-width:1200px; margin:0 auto; padding:0 2rem; }
+    .cv-grid {
+      display:grid;
+      grid-template-columns:1fr 1fr;
+      gap:2rem;
+    }
+
+    /* ===== CARD ===== */
+    .cv-card {
+      background:var(--bg-card);
+      border:1px solid var(--border);
+      border-radius:20px;
+      overflow:hidden;
+      display:flex;
+      flex-direction:column;
+      transition:var(--tr);
+      opacity:0;
+      transform:translateY(28px);
+    }
+    .cv-card.visible {
+      opacity:1;
+      transform:translateY(0);
+    }
+    .cv-card:hover {
+      border-color:var(--border-h);
+      box-shadow:0 16px 48px rgba(196,18,48,0.18);
+      transform:translateY(-4px);
+    }
+    /* keep hover transform only when card is visible */
+    .cv-card.visible:hover { transform:translateY(-4px); }
+
+    /* ===== CARD HEADER ===== */
+    .card-head {
+      padding:1.4rem 1.6rem 1.2rem;
+      border-bottom:1px solid var(--border);
+      display:flex; align-items:flex-start;
+      justify-content:space-between; gap:1rem;
+    }
+    .card-head-info { flex:1; }
+    .badge {
+      display:inline-flex; align-items:center; gap:0.35rem;
+      font-size:0.62rem; font-weight:700; letter-spacing:0.18em;
+      text-transform:uppercase; color:var(--accent);
+      background:var(--accent-dim);
+      border:1px solid rgba(196,18,48,0.2);
+      border-radius:50px; padding:0.28rem 0.7rem;
+      margin-bottom:0.6rem;
+    }
+    .badge-dot {
+      width:6px; height:6px; border-radius:50%;
+      background:var(--accent); display:inline-block;
+      animation:pulse 2s ease-in-out infinite;
+    }
+    @keyframes pulse { 0%,100%{opacity:1;transform:scale(1)} 50%{opacity:.5;transform:scale(.7)} }
+    .card-title { font-size:1.15rem; font-weight:800; margin-bottom:0.25rem; }
+    .card-desc { font-size:0.8rem; color:var(--text-sec); line-height:1.5; }
+    .fmt-icon {
+      width:46px; height:46px; border-radius:11px;
+      display:flex; align-items:center; justify-content:center;
+      font-size:0.6rem; font-weight:800; letter-spacing:0.04em;
+      text-transform:uppercase; flex-shrink:0;
+    }
+    .fmt-pdf { background:rgba(220,53,69,0.14); border:1px solid rgba(220,53,69,0.28); color:#ff6b6b; }
+    .ats-green {
+      display:inline-flex; align-items:center; gap:0.3rem;
+      font-size:0.6rem; font-weight:700; letter-spacing:0.12em;
+      text-transform:uppercase; color:#4ade80;
+      background:rgba(74,222,128,0.1);
+      border:1px solid rgba(74,222,128,0.2);
+      border-radius:50px; padding:0.2rem 0.55rem;
+      margin-left:0.35rem;
+    }
+
+    /* ===== PREVIEW ===== */
+    .preview-wrap {
+      position:relative;
+      flex:1;
+      min-height:480px;
+      background:#fafafa;
+    }
+    .cv-iframe {
+      position:absolute; inset:0;
+      width:100%; height:100%;
+      border:none; display:block;
+    }
+    .loader {
+      position:absolute; inset:0; z-index:5;
+      background:var(--bg-sec);
+      display:flex; flex-direction:column;
+      align-items:center; justify-content:center; gap:1rem;
+      transition:opacity 0.5s ease;
+    }
+    .loader.hidden { opacity:0; pointer-events:none; }
+    .spinner {
+      width:38px; height:38px;
+      border:3px solid var(--border);
+      border-top-color:var(--accent);
+      border-radius:50%;
+      animation:spin 0.75s linear infinite;
+    }
+    @keyframes spin { to { transform:rotate(360deg); } }
+    .loader-txt { font-size:0.78rem; color:var(--text-muted); font-weight:500; }
+
+    .preview-hint {
+      display:flex; align-items:center; gap:0.45rem;
+      padding:0.55rem 1.2rem;
+      background:var(--bg-sec);
+      border-top:1px solid var(--border);
+      font-size:0.68rem; color:var(--text-muted);
+    }
+
+    /* ===== CARD FOOTER / DOWNLOAD ===== */
+    .card-foot {
+      padding:1.2rem 1.6rem;
+      border-top:1px solid var(--border);
+      display:flex; align-items:center;
+      justify-content:space-between; gap:1rem;
+      flex-wrap:wrap;
+    }
+    .file-meta { display:flex; flex-direction:column; gap:0.18rem; }
+    .file-name { font-size:0.76rem; font-weight:600; color:var(--text); }
+    .file-size { font-size:0.68rem; color:var(--text-muted); }
+
+    /* Download button */
+    .btn-dl {
+      display:inline-flex; align-items:center; gap:0.5rem;
+      padding:0.68rem 1.35rem;
+      background:linear-gradient(135deg, var(--accent) 0%, var(--accent-l) 100%);
+      color:#fff; font-size:0.76rem; font-weight:700;
+      letter-spacing:0.07em; text-transform:uppercase;
+      text-decoration:none; border-radius:50px;
+      transition:var(--tr); position:relative; overflow:hidden;
+      box-shadow:0 2px 14px rgba(196,18,48,0.28);
+      white-space:nowrap; cursor:pointer; border:none; flex-shrink:0;
+    }
+    .btn-dl::after {
+      content:''; position:absolute; inset:0;
+      background:rgba(255,255,255,0.13);
+      opacity:0; transition:opacity 0.25s ease;
+    }
+    .btn-dl:hover { transform:translateY(-2px); box-shadow:0 8px 28px rgba(196,18,48,0.45); }
+    .btn-dl:hover::after { opacity:1; }
+    .btn-dl:active { transform:translateY(0); }
+    .btn-dl svg { transition:transform 0.25s cubic-bezier(0.34,1.56,0.64,1); }
+    .btn-dl:hover svg { transform:translateY(3px); }
+
+    /* ===== FOOTER ===== */
+    .site-footer {
+      border-top:1px solid var(--border);
+      padding:1.75rem 0;
+      position:relative; z-index:1;
+    }
+    .foot-inner {
+      max-width:1200px; margin:0 auto; padding:0 2rem;
+      display:flex; align-items:center;
+      justify-content:space-between; flex-wrap:wrap; gap:1rem;
+    }
+    .foot-copy { font-size:0.76rem; color:var(--text-muted); }
+    .foot-copy span { color:var(--accent); }
+    .foot-link {
+      font-size:0.76rem; font-weight:600; color:var(--text-sec);
+      text-decoration:none; display:flex; align-items:center; gap:0.4rem;
+      transition:var(--tr);
+    }
+    .foot-link:hover { color:var(--accent); }
+
+    /* ===== RESPONSIVE ===== */
+    @media (max-width: 900px) {
+      .cv-grid { grid-template-columns:1fr; }
+    }
+    @media (max-width: 640px) {
+      .container { padding:0 1.25rem; }
+      .page-header { padding:7.5rem 0 2.5rem; }
+      .preview-wrap { min-height:360px; }
+      .card-foot { flex-direction:column; align-items:flex-start; }
+      .btn-dl { width:100%; justify-content:center; }
+    }
+  </style>
+</head>
+<body>
+  <div class="bg-orb" aria-hidden="true"></div>
+
+  <!-- NAV -->
+  <header id="navbar" role="banner">
+    <div class="nav-inner">
+      <a href="index.html" class="nav-logo" aria-label="Back to portfolio">
+        <img src="assets/images/profile.jpeg" alt="Chanuda Nilaweera" class="nav-avatar" width="32" height="32" loading="eager" />
+        CN<span>.</span>
+      </a>
+      <a href="index.html" class="nav-back">
+        <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M19 12H5M12 5l-7 7 7 7"/></svg>
+        Back to Portfolio
+      </a>
+    </div>
+  </header>
+
+  <!-- PAGE HEADER -->
+  <div class="page-header">
+    <div class="container">
+      <span class="eyebrow">Resume &amp; CV</span>
+      <h1 class="page-title">Download My CV</h1>
+      <p class="page-sub">Two formats available &mdash; a richly designed standard version and a clean ATS-optimised edition.</p>
+      <div class="divider"></div>
+    </div>
+  </div>
+
+  <!-- CV CARDS -->
+  <section class="cv-section" aria-label="CV downloads">
+    <div class="container">
+      <div class="cv-grid">
+
+        <!-- CARD 1: Standard PDF -->
+        <article class="cv-card" id="card-standard">
+          <div class="card-head">
+            <div class="card-head-info">
+              <span class="badge"><span class="badge-dot"></span>Standard Edition</span>
+              <h2 class="card-title">Chanuda Nilaweera</h2>
+              <p class="card-desc">Full design CV &mdash; rich formatting, visuals &amp; colour accents.</p>
+            </div>
+            <div class="fmt-icon fmt-pdf">PDF</div>
+          </div>
+
+          <div class="preview-wrap" id="wrap-standard">
+            <div class="loader" id="load-standard">
+              <div class="spinner"></div>
+              <span class="loader-txt">Loading preview&hellip;</span>
+            </div>
+            <iframe
+              class="cv-iframe"
+              id="iframe-standard"
+              src="assets/CV %E2%80%93 Chanuda Nilaweera (1).pdf"
+              title="Standard CV - Chanuda Nilaweera"
+              loading="lazy"
+            ></iframe>
+          </div>
+
+          <div class="preview-hint" aria-hidden="true">
+            <svg width="11" height="11" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="11" cy="11" r="8"/><path d="m21 21-4.35-4.35"/></svg>
+            Scroll inside the frame to view full CV
+          </div>
+
+          <div class="card-foot">
+            <div class="file-meta">
+              <span class="file-name">CV &ndash; Chanuda Nilaweera (1).pdf</span>
+              <span class="file-size">PDF &middot; ~1.6 MB</span>
+            </div>
+            <a
+              id="btn-standard"
+              href="assets/CV %E2%80%93 Chanuda Nilaweera (1).pdf"
+              download="CV - Chanuda Nilaweera.pdf"
+              class="btn-dl"
+              aria-label="Download Standard CV as PDF"
+            >
+              <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.3" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/><polyline points="7 10 12 15 17 10"/><line x1="12" y1="15" x2="12" y2="3"/></svg>
+              Download PDF
+            </a>
+          </div>
+        </article>
+
+        <!-- CARD 2: ATS PDF -->
+        <article class="cv-card" id="card-ats" style="transition-delay:0.12s">
+          <div class="card-head">
+            <div class="card-head-info">
+              <span class="badge"><span class="badge-dot"></span>ATS-Optimised Edition</span>
+              <h2 class="card-title">Chanuda Nilaweera</h2>
+              <p class="card-desc">
+                Clean &amp; machine-readable, ideal for online applications.
+                <span class="ats-green">
+                  <svg width="7" height="7" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg>
+                  ATS Friendly
+                </span>
+              </p>
+            </div>
+            <div class="fmt-icon fmt-pdf">PDF</div>
+          </div>
+
+          <div class="preview-wrap" id="wrap-ats">
+            <div class="loader" id="load-ats">
+              <div class="spinner"></div>
+              <span class="loader-txt">Loading preview&hellip;</span>
+            </div>
+            <iframe
+              class="cv-iframe"
+              id="iframe-ats"
+              src="assets/CV %E2%80%93 Chanuda Nilaweera (ATS Style).pdf"
+              title="ATS-Style CV - Chanuda Nilaweera"
+              loading="lazy"
+            ></iframe>
+          </div>
+
+          <div class="preview-hint" aria-hidden="true">
+            <svg width="11" height="11" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="11" cy="11" r="8"/><path d="m21 21-4.35-4.35"/></svg>
+            Scroll inside the frame to view full CV
+          </div>
+
+          <div class="card-foot">
+            <div class="file-meta">
+              <span class="file-name">CV &ndash; Chanuda Nilaweera (ATS Style).pdf</span>
+              <span class="file-size">PDF &middot; ~1.4 MB</span>
+            </div>
+            <a
+              id="btn-ats"
+              href="assets/CV %E2%80%93 Chanuda Nilaweera (ATS Style).pdf"
+              download="CV - Chanuda Nilaweera (ATS Style).pdf"
+              class="btn-dl"
+              aria-label="Download ATS CV as PDF"
+            >
+              <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.3" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/><polyline points="7 10 12 15 17 10"/><line x1="12" y1="15" x2="12" y2="3"/></svg>
+              Download PDF
+            </a>
+          </div>
+        </article>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- FOOTER -->
+  <footer class="site-footer" role="contentinfo">
+    <div class="foot-inner">
+      <p class="foot-copy">&copy; 2026 <span>Chanuda Nilaweera</span>. Crafted with care.</p>
+      <a href="index.html" class="foot-link">
+        <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M3 9l9-7 9 7v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"/><polyline points="9 22 9 12 15 12 15 22"/></svg>
+        Back to Portfolio
+      </a>
+    </div>
+  </footer>
+
+  <script>
+    // Fade-in cards on scroll
+    const cards = document.querySelectorAll('.cv-card');
+    const observer = new IntersectionObserver((entries) => {
+      entries.forEach(e => { if (e.isIntersecting) { e.target.classList.add('visible'); observer.unobserve(e.target); } });
+    }, { threshold: 0.08 });
+    cards.forEach(c => observer.observe(c));
+
+    // Iframe load -> hide spinner
+    function initLoader(iframeId, loaderId) {
+      const iframe = document.getElementById(iframeId);
+      const loader = document.getElementById(loaderId);
+      if (!iframe || !loader) return;
+      iframe.addEventListener('load', () => {
+        loader.classList.add('hidden');
+        setTimeout(() => { try { loader.remove(); } catch(e){} }, 600);
+      });
+      setTimeout(() => loader.classList.add('hidden'), 6000); // fallback
+    }
+    initLoader('iframe-standard', 'load-standard');
+    initLoader('iframe-ats',      'load-ats');
+
+    // Ripple on download buttons
+    const rippleKf = document.createElement('style');
+    rippleKf.textContent = '@keyframes ripple { to { transform:scale(3.5); opacity:0; } }';
+    document.head.appendChild(rippleKf);
+
+    document.querySelectorAll('.btn-dl').forEach(btn => {
+      btn.addEventListener('click', function(e) {
+        const r = this.getBoundingClientRect();
+        const el = document.createElement('span');
+        el.style.cssText = `position:absolute;border-radius:50%;background:rgba(255,255,255,0.28);width:70px;height:70px;left:${e.clientX-r.left-35}px;top:${e.clientY-r.top-35}px;transform:scale(0);animation:ripple 0.5s ease-out forwards;pointer-events:none;`;
+        this.appendChild(el);
+        setTimeout(() => el.remove(), 550);
+      });
+    });
+  </script>
+</body>
+</html>

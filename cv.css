@@ -1,0 +1,527 @@
+﻿/* ============================================================
+   CV PAGE — cv.css
+   Extends styles.css for the CV download page
+   ============================================================ */
+
+/* ── Page background orb ──────────────────────────────────── */
+.bg-orb {
+  position: fixed;
+  top: -200px;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 700px;
+  height: 700px;
+  background: radial-gradient(circle, rgba(196, 18, 48, 0.07) 0%, transparent 70%);
+  pointer-events: none;
+  z-index: 0;
+}
+
+/* ── cv-page body override ──────────────────────────────────── */
+.cv-page {
+  background-color: var(--bg-primary);
+  min-height: 100vh;
+}
+
+/* ── Navbar back-link ────────────────────────────────────────── */
+.nav-back-link {
+  font-size: 0.82rem;
+  font-weight: 600;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  color: var(--text-secondary);
+  text-decoration: none;
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  transition: var(--transition);
+}
+
+.nav-back-link:hover { color: var(--accent); }
+.nav-back-link svg { transition: transform 0.25s ease; }
+.nav-back-link:hover svg { transform: translateX(-3px); }
+
+/* ── Page header ─────────────────────────────────────────────── */
+.cv-page-header {
+  padding: 9rem 0 3.5rem;
+  text-align: center;
+  position: relative;
+  z-index: 1;
+}
+
+.cv-page-header .section-heading { margin-bottom: 1rem; }
+.cv-page-header .section-subtext { margin: 0 auto; text-align: center; }
+
+.cv-divider {
+  width: 60px;
+  height: 3px;
+  background: linear-gradient(90deg, var(--accent), var(--accent-light));
+  border-radius: 2px;
+  margin: 1.5rem auto 0;
+}
+
+/* ── CV Grid ──────────────────────────────────────────────────── */
+.cv-section {
+  padding: 2.5rem 0 7rem;
+  position: relative;
+  z-index: 1;
+}
+
+.cv-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(500px, 1fr));
+  gap: 2.5rem;
+}
+
+/* ── CV Card ──────────────────────────────────────────────────── */
+.cv-card {
+  background: var(--bg-card);
+  border: 1px solid var(--border);
+  border-radius: 20px;
+  overflow: hidden;
+  transition: var(--transition);
+  position: relative;
+}
+
+.cv-card::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  border-radius: 20px;
+  background: linear-gradient(135deg, var(--accent-dim) 0%, transparent 60%);
+  opacity: 0;
+  transition: opacity 0.4s ease;
+  pointer-events: none;
+  z-index: 0;
+}
+
+.cv-card:hover {
+  border-color: var(--border-hover);
+  box-shadow: var(--shadow-hover), 0 0 0 1px var(--border-hover);
+  transform: translateY(-4px);
+}
+
+.cv-card:hover::before { opacity: 1; }
+
+/* ── Card Header ─────────────────────────────────────────────── */
+.cv-card-header {
+  padding: 1.5rem 1.75rem 1.25rem;
+  display: flex;
+  align-items: flex-start;
+  justify-content: space-between;
+  gap: 1rem;
+  border-bottom: 1px solid var(--border);
+  position: relative;
+  z-index: 1;
+}
+
+.cv-card-title-group { flex: 1; }
+
+.cv-type-badge {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.4rem;
+  font-size: 0.65rem;
+  font-weight: 700;
+  letter-spacing: 0.18em;
+  text-transform: uppercase;
+  color: var(--accent);
+  background: var(--accent-dim);
+  border: 1px solid rgba(196, 18, 48, 0.2);
+  border-radius: 50px;
+  padding: 0.3rem 0.75rem;
+  margin-bottom: 0.65rem;
+}
+
+.cv-badge-dot {
+  width: 6px;
+  height: 6px;
+  border-radius: 50%;
+  background: var(--accent);
+  display: inline-block;
+  animation: pulseDot 2s ease-in-out infinite;
+}
+
+@keyframes pulseDot {
+  0%, 100% { opacity: 1; transform: scale(1); }
+  50%       { opacity: 0.5; transform: scale(0.7); }
+}
+
+.cv-card-title {
+  font-size: 1.25rem;
+  font-weight: 800;
+  color: var(--text-primary);
+  line-height: 1.2;
+  margin-bottom: 0.3rem;
+}
+
+.cv-card-desc {
+  font-size: 0.82rem;
+  color: var(--text-secondary);
+  line-height: 1.55;
+  display: flex;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: 0.4rem;
+}
+
+/* Format icon badges */
+.cv-format-icon {
+  width: 48px;
+  height: 48px;
+  border-radius: 12px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 0.62rem;
+  font-weight: 800;
+  letter-spacing: 0.04em;
+  text-transform: uppercase;
+  flex-shrink: 0;
+}
+
+.cv-format-pdf {
+  background: rgba(220, 53, 69, 0.15);
+  border: 1px solid rgba(220, 53, 69, 0.3);
+  color: #ff6b6b;
+}
+
+.cv-format-html {
+  background: rgba(240, 140, 40, 0.12);
+  border: 1px solid rgba(240, 140, 40, 0.25);
+  color: #f0a040;
+}
+
+/* ── Preview iframe area ─────────────────────────────────────── */
+.cv-preview-wrap {
+  position: relative;
+  height: 520px;
+  background: #fff;
+  overflow: hidden;
+}
+
+.cv-iframe {
+  width: 100%;
+  height: 100%;
+  border: none;
+  display: block;
+}
+
+/* Loading overlay */
+.cv-loading {
+  position: absolute;
+  inset: 0;
+  background: var(--bg-secondary);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 1rem;
+  z-index: 5;
+  transition: opacity 0.5s ease;
+}
+
+.cv-loading.hidden {
+  opacity: 0;
+  pointer-events: none;
+}
+
+.cv-loading-spinner {
+  width: 40px;
+  height: 40px;
+  border: 3px solid var(--border);
+  border-top-color: var(--accent);
+  border-radius: 50%;
+  animation: spin 0.8s linear infinite;
+}
+
+@keyframes spin { to { transform: rotate(360deg); } }
+
+.cv-loading-text {
+  font-size: 0.8rem;
+  color: var(--text-muted);
+  font-weight: 500;
+}
+
+/* Preview hint bar */
+.cv-preview-hint {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  padding: 0.6rem 1.25rem;
+  background: var(--bg-secondary);
+  border-top: 1px solid var(--border);
+  font-size: 0.7rem;
+  color: var(--text-muted);
+  letter-spacing: 0.02em;
+}
+
+/* ── Card Footer ─────────────────────────────────────────────── */
+.cv-card-footer {
+  padding: 1.25rem 1.75rem;
+  border-top: 1px solid var(--border);
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 1rem;
+  flex-wrap: wrap;
+  position: relative;
+  z-index: 1;
+}
+
+.cv-file-meta {
+  display: flex;
+  flex-direction: column;
+  gap: 0.2rem;
+}
+
+.cv-file-name {
+  font-size: 0.78rem;
+  font-weight: 600;
+  color: var(--text-primary);
+}
+
+.cv-file-size {
+  font-size: 0.7rem;
+  color: var(--text-muted);
+}
+
+/* Download buttons group (for two buttons side by side) */
+.cv-btn-group {
+  display: flex;
+  gap: 0.65rem;
+  flex-wrap: wrap;
+}
+
+/* ── Download Button ──────────────────────────────────────────── */
+.btn-cv-download {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.55rem;
+  padding: 0.7rem 1.4rem;
+  background: linear-gradient(135deg, var(--accent) 0%, var(--accent-light) 100%);
+  color: #fff;
+  font-size: 0.78rem;
+  font-weight: 700;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+  text-decoration: none;
+  border-radius: 50px;
+  border: none;
+  cursor: pointer;
+  transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+  position: relative;
+  overflow: hidden;
+  white-space: nowrap;
+  flex-shrink: 0;
+  box-shadow: 0 2px 12px rgba(196, 18, 48, 0.25);
+}
+
+.btn-cv-download::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(135deg, rgba(255,255,255,0.18) 0%, transparent 100%);
+  opacity: 0;
+  transition: opacity 0.25s ease;
+}
+
+.btn-cv-download:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 8px 28px rgba(196, 18, 48, 0.45);
+}
+
+.btn-cv-download:hover::before { opacity: 1; }
+.btn-cv-download:active { transform: translateY(0); }
+
+.btn-cv-download svg {
+  transition: transform 0.25s cubic-bezier(0.34, 1.56, 0.64, 1);
+}
+
+.btn-cv-download:hover svg { transform: translateY(2.5px); }
+
+/* Amber variant for HTML button */
+.btn-cv-amber {
+  background: linear-gradient(135deg, #b45309 0%, #d97706 100%);
+  box-shadow: 0 2px 12px rgba(180, 83, 9, 0.25);
+}
+
+.btn-cv-amber:hover {
+  box-shadow: 0 8px 28px rgba(180, 83, 9, 0.45);
+}
+
+/* ── ATS tag ────────────────────────────────────────────────── */
+.ats-tag {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.35rem;
+  font-size: 0.62rem;
+  font-weight: 700;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  color: #4ade80;
+  background: rgba(74, 222, 128, 0.1);
+  border: 1px solid rgba(74, 222, 128, 0.2);
+  border-radius: 50px;
+  padding: 0.22rem 0.6rem;
+}
+
+/* ── "Download CV" button in navbar ──────────────────────────── */
+.nav-cv-btn {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.45rem;
+  padding: 0.5rem 1.1rem;
+  background: linear-gradient(135deg, var(--accent) 0%, var(--accent-light) 100%);
+  color: #fff !important;
+  font-size: 0.75rem;
+  font-weight: 700;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  text-decoration: none;
+  border-radius: 50px;
+  transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+  position: relative;
+  overflow: hidden;
+  box-shadow: 0 2px 10px rgba(196, 18, 48, 0.3);
+  white-space: nowrap;
+}
+
+.nav-cv-btn::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background: rgba(255,255,255,0.12);
+  opacity: 0;
+  transition: opacity 0.25s ease;
+}
+
+.nav-cv-btn:hover {
+  transform: translateY(-1px);
+  box-shadow: 0 6px 20px rgba(196, 18, 48, 0.45);
+}
+
+.nav-cv-btn:hover::before { opacity: 1; }
+.nav-cv-btn:active { transform: translateY(0); }
+
+/* Don't show underline from nav-links on this button */
+.nav-cv-btn::after { display: none !important; }
+
+/* Mobile menu CV button */
+.mobile-cv-btn {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5rem;
+  padding: 0.75rem 2rem;
+  background: linear-gradient(135deg, var(--accent) 0%, var(--accent-light) 100%);
+  color: #fff !important;
+  font-size: 1rem;
+  font-weight: 800;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  text-decoration: none;
+  border-radius: 50px;
+  transition: all 0.3s ease;
+  box-shadow: 0 4px 16px rgba(196, 18, 48, 0.35);
+}
+
+.mobile-cv-btn:hover {
+  color: #fff !important;
+  box-shadow: 0 8px 28px rgba(196, 18, 48, 0.5);
+  transform: translateY(-2px);
+}
+
+/* ── Footer "Download CV" button ─────────────────────────────── */
+.footer-cv-btn {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.45rem;
+  padding: 0.5rem 1.1rem;
+  background: linear-gradient(135deg, var(--accent) 0%, var(--accent-light) 100%);
+  color: #fff;
+  font-size: 0.72rem;
+  font-weight: 700;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  text-decoration: none;
+  border-radius: 50px;
+  transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+  box-shadow: 0 2px 10px rgba(196, 18, 48, 0.25);
+  white-space: nowrap;
+}
+
+.footer-cv-btn:hover {
+  transform: translateY(-1px);
+  box-shadow: 0 6px 20px rgba(196, 18, 48, 0.4);
+}
+
+/* ── Responsive ──────────────────────────────────────────────── */
+@media (max-width: 900px) {
+  .cv-grid { grid-template-columns: 1fr; }
+}
+
+@media (max-width: 768px) {
+  .cv-preview-wrap { height: 380px; }
+  .cv-card-footer { flex-direction: column; align-items: flex-start; }
+  .btn-cv-download { width: 100%; justify-content: center; }
+  .cv-btn-group { width: 100%; }
+  .cv-btn-group .btn-cv-download { flex: 1; }
+}
+
+@media (max-width: 480px) {
+  .cv-page-header { padding: 7.5rem 0 2.5rem; }
+  .nav-cv-btn span { display: none; }
+}
+
+/* ============================================================
+   FOOTER UPDATES (for index.html footer with Download CV btn)
+   ============================================================ */
+.footer-bar {
+  border-top: 1px solid var(--border);
+  padding: 1.5rem 0;
+  background: transparent;
+}
+
+.footer-inner {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 1rem;
+  flex-wrap: wrap;
+}
+
+.footer-right {
+  display: flex;
+  align-items: center;
+  gap: 2rem;
+  flex-wrap: wrap;
+}
+
+.footer-nav {
+  display: flex;
+  list-style: none;
+  gap: 1.5rem;
+}
+
+.footer-nav a {
+  font-size: 0.75rem;
+  font-weight: 600;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  color: var(--text-muted);
+  text-decoration: none;
+  transition: var(--transition);
+}
+
+.footer-nav a:hover { color: var(--accent); }
+
+.footer-copy {
+  font-size: 0.78rem;
+  color: var(--text-muted);
+}
+
+.footer-copy span { color: var(--accent); }
+
+@media (max-width: 640px) {
+  .footer-inner { flex-direction: column; align-items: flex-start; gap: 1.25rem; }
+  .footer-right { gap: 1.25rem; }
+}
