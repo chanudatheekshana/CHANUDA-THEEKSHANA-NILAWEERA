@@ -1,0 +1,131 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 800 500" width="100%" height="100%">
+  <defs>
+    <linearGradient id="mBgGrad" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#090d16"/>
+      <stop offset="100%" stop-color="#020408"/>
+    </linearGradient>
+    <linearGradient id="phoneGrad" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#1e293b"/>
+      <stop offset="100%" stop-color="#0f172a"/>
+    </linearGradient>
+    <linearGradient id="goldGrad" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#f59e0b"/>
+      <stop offset="100%" stop-color="#d97706"/>
+    </linearGradient>
+    <linearGradient id="greenGrad" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#10b981"/>
+      <stop offset="100%" stop-color="#059669"/>
+    </linearGradient>
+    <linearGradient id="crimsonGrad2" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#c41230"/>
+      <stop offset="100%" stop-color="#e8173a"/>
+    </linearGradient>
+  </defs>
+
+  <!-- Background -->
+  <rect width="800" height="500" rx="16" fill="url(#mBgGrad)"/>
+
+  <!-- Chrome Bar -->
+  <rect width="800" height="42" rx="16" fill="#070a12"/>
+  <rect y="32" width="800" height="10" fill="#070a12"/>
+  
+  <circle cx="28" cy="21" r="5" fill="#ef4444"/>
+  <circle cx="46" cy="21" r="5" fill="#f59e0b"/>
+  <circle cx="64" cy="21" r="5" fill="#10b981"/>
+
+  <!-- URL Address Bar -->
+  <rect x="140" y="10" width="520" height="22" rx="6" fill="#151d2f"/>
+  <svg x="152" y="14" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="#64748b" stroke-width="2">
+    <rect x="3" y="11" width="18" height="11" rx="2" ry="2"/>
+    <path d="M7 11V7a5 5 0 0 1 10 0v4"/>
+  </svg>
+  <text x="175" y="25" fill="#94a3b8" font-family="'Inter', -apple-system, sans-serif" font-size="11" font-weight="500">
+    chanudatheekshana.github.io/Mobile-Phones-Accessories-Salles-/
+  </text>
+
+  <!-- Store Header -->
+  <rect x="40" y="58" width="720" height="52" rx="8" fill="#111827"/>
+  <!-- Brand -->
+  <circle cx="68" cy="84" r="14" fill="url(#greenGrad)"/>
+  <svg x="60" y="76" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="#ffffff" stroke-width="2.5">
+    <rect x="5" y="2" width="14" height="20" rx="2" ry="2"/>
+    <line x1="12" y1="18" x2="12.01" y2="18"/>
+  </svg>
+  <text x="92" y="88" fill="#ffffff" font-family="'Inter', sans-serif" font-size="15" font-weight="800">MOBILE TECH STORE</text>
+
+  <!-- Search Input Bar -->
+  <rect x="300" y="70" width="280" height="28" rx="14" fill="#1f2937" stroke="#374151" stroke-width="1"/>
+  <text x="325" y="88" fill="#9ca3af" font-family="'Inter', sans-serif" font-size="11">Search smartphones, chargers, cases...</text>
+
+  <!-- Cart Icon -->
+  <rect x="660" y="70" width="85" height="28" rx="6" fill="url(#crimsonGrad2)"/>
+  <text x="702" y="88" fill="#ffffff" font-family="'Inter', sans-serif" font-size="11" font-weight="700" text-anchor="middle">🛒 Cart (3)</text>
+
+  <!-- Store Banner -->
+  <rect x="40" y="122" width="720" height="110" rx="12" fill="#131c31" stroke="#1f2937" stroke-width="1"/>
+  <rect x="60" y="140" width="90" height="20" rx="4" fill="url(#goldGrad)"/>
+  <text x="105" y="154" fill="#000000" font-family="'Inter', sans-serif" font-size="10" font-weight="800" text-anchor="middle">SPECIAL OFFER</text>
+  <text x="60" y="185" fill="#ffffff" font-family="'Inter', sans-serif" font-size="22" font-weight="900">Latest Flagship Phones &amp; Premium Gear</text>
+  <text x="60" y="210" fill="#94a3b8" font-family="'Inter', sans-serif" font-size="12">Up to 30% discount on genuine mobile accessories &amp; fast chargers</text>
+
+  <!-- Products Grid (4 items) -->
+  <!-- Product 1 -->
+  <g transform="translate(40, 246)">
+    <rect width="168" height="230" rx="10" fill="#111827" stroke="#1f2937" stroke-width="1"/>
+    <!-- Phone Mockup Shape -->
+    <rect x="52" y="18" width="64" height="100" rx="10" fill="url(#phoneGrad)" stroke="#38bdf8" stroke-width="1.5"/>
+    <circle cx="84" cy="24" r="2.5" fill="#38bdf8"/>
+    <rect x="58" y="32" width="52" height="72" rx="4" fill="#0369a1" opacity="0.3"/>
+    
+    <text x="14" y="142" fill="#f3f4f6" font-family="'Inter', sans-serif" font-size="12" font-weight="700">Pro Smartphone 5G</text>
+    <text x="14" y="160" fill="#10b981" font-family="'Inter', sans-serif" font-size="12" font-weight="800">LKR 189,000</text>
+    <text x="14" y="176" fill="#9ca3af" font-family="'Inter', sans-serif" font-size="9">⭐ 4.9 (124 reviews)</text>
+    <rect x="14" y="188" width="140" height="28" rx="6" fill="#1f2937" stroke="#374151" stroke-width="1"/>
+    <text x="84" y="206" fill="#ffffff" font-family="'Inter', sans-serif" font-size="10" font-weight="600" text-anchor="middle">Buy Now</text>
+  </g>
+
+  <!-- Product 2 -->
+  <g transform="translate(224, 246)">
+    <rect width="168" height="230" rx="10" fill="#111827" stroke="#1f2937" stroke-width="1"/>
+    <!-- Earbuds shape -->
+    <rect x="50" y="25" width="68" height="85" rx="14" fill="#1e293b" stroke="#a855f7" stroke-width="1.5"/>
+    <circle cx="70" cy="55" r="10" fill="#a855f7" opacity="0.5"/>
+    <circle cx="98" cy="55" r="10" fill="#a855f7" opacity="0.5"/>
+    
+    <text x="14" y="142" fill="#f3f4f6" font-family="'Inter', sans-serif" font-size="12" font-weight="700">Wireless ANC Earbuds</text>
+    <text x="14" y="160" fill="#10b981" font-family="'Inter', sans-serif" font-size="12" font-weight="800">LKR 12,500</text>
+    <text x="14" y="176" fill="#9ca3af" font-family="'Inter', sans-serif" font-size="9">⭐ 4.8 (89 reviews)</text>
+    <rect x="14" y="188" width="140" height="28" rx="6" fill="#1f2937" stroke="#374151" stroke-width="1"/>
+    <text x="84" y="206" fill="#ffffff" font-family="'Inter', sans-serif" font-size="10" font-weight="600" text-anchor="middle">Buy Now</text>
+  </g>
+
+  <!-- Product 3 -->
+  <g transform="translate(408, 246)">
+    <rect width="168" height="230" rx="10" fill="#111827" stroke="#1f2937" stroke-width="1"/>
+    <!-- 65W GaN Charger -->
+    <rect x="60" y="32" width="48" height="70" rx="8" fill="#1e293b" stroke="#eab308" stroke-width="1.5"/>
+    <polygon points="84,45 76,65 84,65 80,85 92,60 84,60" fill="#facc15"/>
+    
+    <text x="14" y="142" fill="#f3f4f6" font-family="'Inter', sans-serif" font-size="12" font-weight="700">65W GaN Fast Charger</text>
+    <text x="14" y="160" fill="#10b981" font-family="'Inter', sans-serif" font-size="12" font-weight="800">LKR 6,800</text>
+    <text x="14" y="176" fill="#9ca3af" font-family="'Inter', sans-serif" font-size="9">⭐ 4.9 (210 reviews)</text>
+    <rect x="14" y="188" width="140" height="28" rx="6" fill="#1f2937" stroke="#374151" stroke-width="1"/>
+    <text x="84" y="206" fill="#ffffff" font-family="'Inter', sans-serif" font-size="10" font-weight="600" text-anchor="middle">Buy Now</text>
+  </g>
+
+  <!-- Product 4 -->
+  <g transform="translate(592, 246)">
+    <rect width="168" height="230" rx="10" fill="#111827" stroke="#1f2937" stroke-width="1"/>
+    <!-- Smart Watch -->
+    <rect x="62" y="25" width="44" height="85" rx="10" fill="#1e293b" stroke="#f43f5e" stroke-width="1.5"/>
+    <rect x="66" y="42" width="36" height="50" rx="6" fill="#0f172a"/>
+    <circle cx="84" cy="67" r="12" fill="none" stroke="#f43f5e" stroke-width="2"/>
+    
+    <text x="14" y="142" fill="#f3f4f6" font-family="'Inter', sans-serif" font-size="12" font-weight="700">Fitness Smart Watch</text>
+    <text x="14" y="160" fill="#10b981" font-family="'Inter', sans-serif" font-size="12" font-weight="800">LKR 16,900</text>
+    <text x="14" y="176" fill="#9ca3af" font-family="'Inter', sans-serif" font-size="9">⭐ 4.7 (64 reviews)</text>
+    <rect x="14" y="188" width="140" height="28" rx="6" fill="#1f2937" stroke="#374151" stroke-width="1"/>
+    <text x="84" y="206" fill="#ffffff" font-family="'Inter', sans-serif" font-size="10" font-weight="600" text-anchor="middle">Buy Now</text>
+  </g>
+</svg>
+

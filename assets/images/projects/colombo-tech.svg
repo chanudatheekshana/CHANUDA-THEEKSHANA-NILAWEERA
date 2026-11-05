@@ -1,0 +1,124 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 800 500" width="100%" height="100%">
+  <defs>
+    <linearGradient id="cBgGrad" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#041624"/>
+      <stop offset="60%" stop-color="#020d18"/>
+      <stop offset="100%" stop-color="#01060c"/>
+    </linearGradient>
+    <linearGradient id="cyanGrad" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#06b6d4"/>
+      <stop offset="100%" stop-color="#0284c7"/>
+    </linearGradient>
+    <linearGradient id="jobCardGrad" x1="0%" y1="0%" x2="0%" y2="100%">
+      <stop offset="0%" stop-color="#0c2338"/>
+      <stop offset="100%" stop-color="#061524"/>
+    </linearGradient>
+  </defs>
+
+  <!-- Background -->
+  <rect width="800" height="500" rx="16" fill="url(#cBgGrad)"/>
+
+  <!-- Top Browser Chrome -->
+  <rect width="800" height="42" rx="16" fill="#03101c"/>
+  <rect y="32" width="800" height="10" fill="#03101c"/>
+  
+  <circle cx="28" cy="21" r="5" fill="#ef4444"/>
+  <circle cx="46" cy="21" r="5" fill="#f59e0b"/>
+  <circle cx="64" cy="21" r="5" fill="#10b981"/>
+
+  <!-- URL Address Bar -->
+  <rect x="140" y="10" width="520" height="22" rx="6" fill="#0a2035"/>
+  <svg x="152" y="14" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="#38bdf8" stroke-width="2">
+    <rect x="3" y="11" width="18" height="11" rx="2" ry="2"/>
+    <path d="M7 11V7a5 5 0 0 1 10 0v4"/>
+  </svg>
+  <text x="175" y="25" fill="#7dd3fc" font-family="'Inter', -apple-system, sans-serif" font-size="11" font-weight="500">
+    chanudatheekshana.github.io/Colombo-Tech-Careers/
+  </text>
+
+  <!-- Navigation Bar inside mockup -->
+  <rect x="40" y="58" width="720" height="50" rx="8" fill="#071b2d" stroke="#0e3456" stroke-width="1"/>
+  <!-- Logo -->
+  <circle cx="68" cy="83" r="14" fill="url(#cyanGrad)"/>
+  <text x="68" y="88" fill="#ffffff" font-family="'Inter', sans-serif" font-size="14" font-weight="900" text-anchor="middle">C</text>
+  <text x="94" y="88" fill="#ffffff" font-family="'Inter', sans-serif" font-size="15" font-weight="800">COLOMBO TECH CAREERS</text>
+  
+  <!-- Right nav items -->
+  <rect x="480" y="73" width="70" height="20" rx="4" fill="#0c2a44"/>
+  <text x="515" y="87" fill="#7dd3fc" font-family="'Inter', sans-serif" font-size="10" font-weight="600" text-anchor="middle">Companies</text>
+  
+  <rect x="560" y="73" width="70" height="20" rx="4" fill="#0c2a44"/>
+  <text x="595" y="87" fill="#7dd3fc" font-family="'Inter', sans-serif" font-size="10" font-weight="600" text-anchor="middle">Salaries</text>
+
+  <rect x="640" y="68" width="105" height="30" rx="6" fill="url(#cyanGrad)"/>
+  <text x="692" y="87" fill="#ffffff" font-family="'Inter', sans-serif" font-size="11" font-weight="700" text-anchor="middle">Post a Job</text>
+
+  <!-- Hero Search Area -->
+  <g transform="translate(40, 122)">
+    <text x="0" y="28" fill="#ffffff" font-family="'Inter', sans-serif" font-size="24" font-weight="800">
+      Find Sri Lanka's Best Tech Opportunities
+    </text>
+    <text x="0" y="50" fill="#94a3b8" font-family="'Inter', sans-serif" font-size="12">
+      Connecting Software Engineers, Data Scientists, and Product Teams in Colombo.
+    </text>
+
+    <!-- Search Input Bar Mockup -->
+    <rect x="0" y="65" width="720" height="42" rx="8" fill="#0b243b" stroke="#164e63" stroke-width="1"/>
+    <text x="20" y="91" fill="#7dd3fc" font-family="'Inter', sans-serif" font-size="12">🔍 Search job title, stack (e.g. React, Python, AWS)...</text>
+    <rect x="600" y="71" width="110" height="30" rx="6" fill="#0284c7"/>
+    <text x="655" y="90" fill="#ffffff" font-family="'Inter', sans-serif" font-size="11" font-weight="700" text-anchor="middle">Search Jobs</text>
+  </g>
+
+  <!-- Job Cards Row (3 Cards) -->
+  <g transform="translate(40, 248)">
+    <!-- Job Card 1 -->
+    <rect x="0" y="0" width="226" height="225" rx="10" fill="url(#jobCardGrad)" stroke="#0e3a5f" stroke-width="1"/>
+    <!-- Company Logo box -->
+    <rect x="16" y="16" width="38" height="38" rx="8" fill="#0369a1"/>
+    <text x="35" y="40" fill="#ffffff" font-family="'Inter', sans-serif" font-size="16" font-weight="800" text-anchor="middle">&lt;/&gt;</text>
+    <rect x="62" y="16" width="60" height="16" rx="4" fill="rgba(16,185,129,0.2)"/>
+    <text x="92" y="28" fill="#10b981" font-family="'Inter', sans-serif" font-size="9" font-weight="700" text-anchor="middle">Full-Time</text>
+    <text x="62" y="48" fill="#94a3b8" font-family="'Inter', sans-serif" font-size="11">TechVenture LK</text>
+
+    <text x="16" y="82" fill="#ffffff" font-family="'Inter', sans-serif" font-size="14" font-weight="700">Senior Full-Stack Dev</text>
+    <text x="16" y="100" fill="#06b6d4" font-family="'Inter', sans-serif" font-size="11" font-weight="600">Colombo 03 • Hybrid</text>
+    <text x="16" y="122" fill="#94a3b8" font-family="'Inter', sans-serif" font-size="10">React, Node.js, GraphQL, PostgreSQL</text>
+    <text x="16" y="148" fill="#38bdf8" font-family="'Inter', sans-serif" font-size="12" font-weight="700">LKR 350k - 500k / mo</text>
+
+    <rect x="16" y="174" width="194" height="32" rx="6" fill="#0369a1"/>
+    <text x="113" y="194" fill="#ffffff" font-family="'Inter', sans-serif" font-size="11" font-weight="700" text-anchor="middle">View &amp; Apply</text>
+
+    <!-- Job Card 2 -->
+    <rect x="246" y="0" width="226" height="225" rx="10" fill="url(#jobCardGrad)" stroke="#0e3a5f" stroke-width="1"/>
+    <rect x="262" y="16" width="38" height="38" rx="8" fill="#4338ca"/>
+    <text x="281" y="40" fill="#ffffff" font-family="'Inter', sans-serif" font-size="16" font-weight="800" text-anchor="middle">AI</text>
+    <rect x="308" y="16" width="55" height="16" rx="4" fill="rgba(56,189,248,0.2)"/>
+    <text x="335" y="28" fill="#38bdf8" font-family="'Inter', sans-serif" font-size="9" font-weight="700" text-anchor="middle">Remote</text>
+    <text x="308" y="48" fill="#94a3b8" font-family="'Inter', sans-serif" font-size="11">DataCore AI Labs</text>
+
+    <text x="262" y="82" fill="#ffffff" font-family="'Inter', sans-serif" font-size="14" font-weight="700">Data &amp; ML Engineer</text>
+    <text x="262" y="100" fill="#06b6d4" font-family="'Inter', sans-serif" font-size="11" font-weight="600">Colombo / Worldwide</text>
+    <text x="262" y="122" fill="#94a3b8" font-family="'Inter', sans-serif" font-size="10">Python, PyTorch, BigQuery, Spark</text>
+    <text x="262" y="148" fill="#38bdf8" font-family="'Inter', sans-serif" font-size="12" font-weight="700">LKR 400k - 650k / mo</text>
+
+    <rect x="262" y="174" width="194" height="32" rx="6" fill="#0369a1"/>
+    <text x="359" y="194" fill="#ffffff" font-family="'Inter', sans-serif" font-size="11" font-weight="700" text-anchor="middle">View &amp; Apply</text>
+
+    <!-- Job Card 3 -->
+    <rect x="492" y="0" width="226" height="225" rx="10" fill="url(#jobCardGrad)" stroke="#0e3a5f" stroke-width="1"/>
+    <rect x="508" y="16" width="38" height="38" rx="8" fill="#059669"/>
+    <text x="527" y="40" fill="#ffffff" font-family="'Inter', sans-serif" font-size="16" font-weight="800" text-anchor="middle">☁️</text>
+    <rect x="554" y="16" width="60" height="16" rx="4" fill="rgba(16,185,129,0.2)"/>
+    <text x="584" y="28" fill="#10b981" font-family="'Inter', sans-serif" font-size="9" font-weight="700" text-anchor="middle">Full-Time</text>
+    <text x="554" y="48" fill="#94a3b8" font-family="'Inter', sans-serif" font-size="11">CloudMatrix Global</text>
+
+    <text x="508" y="82" fill="#ffffff" font-family="'Inter', sans-serif" font-size="14" font-weight="700">DevOps &amp; Cloud Eng</text>
+    <text x="508" y="100" fill="#06b6d4" font-family="'Inter', sans-serif" font-size="11" font-weight="600">Colombo 07 • On-site</text>
+    <text x="508" y="122" fill="#94a3b8" font-family="'Inter', sans-serif" font-size="10">Kubernetes, Terraform, AWS, Docker</text>
+    <text x="508" y="148" fill="#38bdf8" font-family="'Inter', sans-serif" font-size="12" font-weight="700">LKR 300k - 450k / mo</text>
+
+    <rect x="508" y="174" width="194" height="32" rx="6" fill="#0369a1"/>
+    <text x="605" y="194" fill="#ffffff" font-family="'Inter', sans-serif" font-size="11" font-weight="700" text-anchor="middle">View &amp; Apply</text>
+  </g>
+</svg>
+
